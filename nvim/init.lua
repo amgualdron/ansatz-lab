@@ -227,6 +227,11 @@ require("nvim-treesitter.configs").setup({
 --------------------------------------------------------------------------
 local keymap = vim.keymap.set
 
+-- vimtex
+keymap("n", "<localleader>ll", "<cmd>VimtexCompile<CR>")
+keymap("n", "<localleader>lv", "<cmd>VimtexView<CR>")
+keymap("n", "<localleader>lc", "<cmd>VimtexClean<CR>")
+
 -- Standard
 keymap("n", "<leader>w", ":w<CR>", { desc = "Save" })
 keymap("n", "<leader>q", ":q<CR>", { desc = "Quit" })

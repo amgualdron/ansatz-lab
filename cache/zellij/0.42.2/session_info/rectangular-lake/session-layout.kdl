@@ -1,0 +1,73 @@
+layout {
+    cwd "/home/andres"
+    tab name="Analysis" hide_floating_panes=true {
+        pane size=1 borderless=true {
+            plugin location="zellij:tab-bar"
+        }
+        pane split_direction="vertical" {
+            pane command="nvim" cwd="Documents/Projects/tise-python" size="60%" {
+                args "."
+                start_suspended true
+            }
+            pane command="ipython" name="IPython" cwd="Documents/Projects/tise-python" size="40%" {
+                args "--no-autoindent"
+                start_suspended true
+            }
+        }
+        pane size=2 borderless=true {
+            plugin location="zellij:status-bar"
+        }
+    }
+    tab name="Dev" hide_floating_panes=true {
+        pane size=1 borderless=true {
+            plugin location="zellij:tab-bar"
+        }
+        pane split_direction="vertical" {
+            pane command="nvim" cwd="Documents/Projects/tise-python" size="65%" {
+                args "."
+                start_suspended true
+            }
+            pane command="bash" name="Build" cwd="Documents/Projects/tise-python" size="35%" {
+                start_suspended true
+            }
+        }
+        pane size=2 borderless=true {
+            plugin location="zellij:status-bar"
+        }
+    }
+    tab name="Git" hide_floating_panes=true {
+        pane size=1 borderless=true {
+            plugin location="zellij:tab-bar"
+        }
+        pane command="lazygit" cwd="ansatz-lab" {
+            start_suspended true
+        }
+        pane size=2 borderless=true {
+            plugin location="zellij:status-bar"
+        }
+    }
+    tab name="Paper" focus=true hide_floating_panes=true {
+        pane size=1 borderless=true {
+            plugin location="zellij:tab-bar"
+        }
+        pane split_direction="vertical" {
+            pane command="nvim" cwd="Documents/Projects/tise-python" focus=true size="70%" {
+                args "."
+                start_suspended true
+            }
+            pane name="Files" cwd="Documents/Projects/tise-python" size="30%"
+        }
+        pane size=2 borderless=true {
+            plugin location="zellij:status-bar"
+        }
+    }
+    new_tab_template {
+        pane size=1 borderless=true {
+            plugin location="zellij:tab-bar"
+        }
+        pane
+        pane size=2 borderless=true {
+            plugin location="zellij:status-bar"
+        }
+    }
+}
