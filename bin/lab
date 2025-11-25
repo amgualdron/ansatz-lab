@@ -1,0 +1,33 @@
+#!/usr/bin/env bash
+
+# 1. Get the absolute path to the anzatz-lab root
+# --------------------------------------------------------------------------
+LAB_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+
+# 2. Activate the Global Lab Python Environment
+# --------------------------------------------------------------------------
+if [ -f "$LAB_ROOT/python/.venv/bin/activate" ]; then
+    source "$LAB_ROOT/python/.venv/bin/activate"
+else
+    echo "Warning: Lab Python environment not found."
+fi
+
+# 3. TOTAL ISOLATION: Configure XDG Paths
+# --------------------------------------------------------------------------
+# This is what makes stdpath('data') point to inside your lab folder
+export XDG_CONFIG_HOME="$LAB_ROOT"
+export XDG_DATA_HOME="$LAB_ROOT/share"
+export XDG_STATE_HOME="$LAB_ROOT/state"
+export XDG_CACHE_HOME="$LAB_ROOT/cache"
+
+# NVIM_APPNAME tells nvim to look for a directory of this name inside CONFIG_HOME
+# Since XDG_CONFIG_HOME is $LAB_ROOT, nvim looks in $LAB_ROOT/nvim
+export NVIM_APPNAME="nvim" 
+
+# 4. Launch Zellij with the Lab Layout
+# --------------------------------------------------------------------------
+if [ -n "$ZELLIJ" ]; then
+    echo "Already inside a Lab session."
+else
+    exec zellij --config-dir "$LAB_ROOT/zellij" --layout "$LAB_ROOT/zellij/lab.kdl"
+fi

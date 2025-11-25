@@ -1,0 +1,62 @@
+layout {
+    // ─── GLOBAL TEMPLATE (Status bar & Tab bar) ──────────────────────
+    default_tab_template {
+        pane size=1 borderless=true {
+            plugin location="zellij:tab-bar"
+        }
+        children
+        pane size=2 borderless=true {
+            plugin location="zellij:status-bar"
+        }
+    }
+
+    // ─── TAB 1: ANALYSIS (Python + IPython + Shell) ─────────────────
+    tab name="Analysis" focus=true {
+        pane split_direction="vertical" {
+            // Main Editor (60% width)
+            pane size="60%" command="nvim" {
+                args "."
+                focus true
+            }
+            
+            // Right Side Stack
+            pane split_direction="horizontal" {
+                // Top Right: IPython REPL
+                pane name="IPython" command="ipython" {
+                    args "--no-autoindent"
+                }
+                // Bottom Right: System Shell
+                pane name="System"
+            }
+        }
+    }
+
+    // ─── TAB 2: DEV (C++ / Fortran Build Env) ───────────────────────
+    tab name="Dev" {
+        pane split_direction="vertical" {
+            pane size="65%" command="nvim" {
+                args "."
+            }
+            pane name="Build & Run" command="bash" {
+                // Optional: Pre-type 'make' command history
+            }
+        }
+    }
+
+    // ─── TAB 3: VERSION CONTROL (Lazygit) ───────────────────────────
+    tab name="Git" {
+        // Requires 'lazygit' installed on system. 
+        // If not, change command to "bash"
+        pane command="lazygit" 
+    }
+
+    // ─── TAB 4: WRITING (Paper / LaTeX) ─────────────────────────────
+    tab name="Paper" {
+        pane split_direction="vertical" {
+            pane size="70%" command="nvim" {
+                args "."
+            }
+            pane name="Files/Reference"
+        }
+    }
+}
