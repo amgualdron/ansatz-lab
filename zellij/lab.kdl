@@ -14,7 +14,7 @@ layout {
     tab name="Analysis" focus=true {
         pane split_direction="vertical" {
             // Main Editor (Left, 60%)
-            pane size="60%" command="nvim" {
+            pane size="65%" command="nvim" {
                 args "."
                 focus true
             }
@@ -29,7 +29,7 @@ layout {
     // ─── TAB 2: DEV (Simulation Build & Run) ────────────────────────
     tab name="Dev" {
         pane split_direction="vertical" {
-            pane size="65%" command="nvim" { args "."; }
+            pane size="75%" command="nvim" { args "."; }
             pane name="Build" command="bash"
         }
     }
@@ -42,8 +42,8 @@ layout {
     // ─── TAB 4: PAPER (Writing) ─────────────────────────────────────
     tab name="Paper" {
         pane split_direction="vertical" {
-            pane size="70%" command="nvim" { args "."; }
-            pane name="Files"
+            pane size="20%"
+            pane name="Edit"  command="nvim" { args "."; }
         }
     }
 }
