@@ -1,31 +1,63 @@
 #!/usr/bin/env bash
 
-# 1. Get the absolute path to the anzatz-lab root
+# 1. SETUP PATHS
 # --------------------------------------------------------------------------
 LAB_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
-
-# 2. Activate the Global Lab Python Environment
-# --------------------------------------------------------------------------
-if [ -f "$LAB_ROOT/python/.venv/bin/activate" ]; then
-    source "$LAB_ROOT/python/.venv/bin/activate"
-else
-    echo "Warning: Lab Python environment not found."
-fi
-
-# 3. TOTAL ISOLATION: Configure XDG Paths
-# --------------------------------------------------------------------------
-# This is what makes stdpath('data') point to inside your lab folder
 export XDG_CONFIG_HOME="$LAB_ROOT"
 export XDG_DATA_HOME="$LAB_ROOT/share"
 export XDG_STATE_HOME="$LAB_ROOT/state"
 export XDG_CACHE_HOME="$LAB_ROOT/cache"
-
-# NVIM_APPNAME tells nvim to look for a directory of this name inside CONFIG_HOME
-# Since XDG_CONFIG_HOME is $LAB_ROOT, nvim looks in $LAB_ROOT/nvim
 export NVIM_APPNAME="nvim" 
 
-# 4. Launch Zellij with the Lab Layout
+# 2. TEMPLATE GENERATOR LOGIC (The New Feature)
 # --------------------------------------------------------------------------
+if [ "$1" == "new" ]; then
+    TEMPLATE_TYPE="$2"
+    PROJECT_NAME="$3"
+
+    # Check arguments
+    if [ -z "$TEMPLATE_TYPE" ] || [ -z "$PROJECT_NAME" ]; then
+        echo "Usage: lab new <template> <project_name>"
+        echo "Available templates:"
+        ls "$LAB_ROOT/templates"
+        exit 1
+    fi
+
+    # Check if template exists
+    TEMPLATE_PATH="$LAB_ROOT/templates/$TEMPLATE_TYPE"
+    if [ ! -d "$TEMPLATE_PATH" ]; then
+        echo "Error: Template '$TEMPLATE_TYPE' not found in $LAB_ROOT/templates/"
+        exit 1
+    fi
+
+    # Check if target directory already exists
+    TARGET_DIR="$(pwd)/$PROJECT_NAME"
+    if [ -d "$TARGET_DIR" ]; then
+        echo "Error: Directory '$PROJECT_NAME' already exists."
+        exit 1
+    fi
+
+    # CREATE PROJECT
+    echo "Creating new '$TEMPLATE_TYPE' project in: $PROJECT_NAME"
+    cp -r "$TEMPLATE_PATH" "$TARGET_DIR"
+    
+    # Init Git
+    cd "$TARGET_DIR" || exit
+    git init -q
+    echo "Git repository initialized."
+    echo "Done. Run: cd $PROJECT_NAME && lab"
+    exit 0
+fi
+
+# 3. ENVIRONMENT ACTIVATION (Only run if not just generating files)
+# --------------------------------------------------------------------------
+if [ -f "$LAB_ROOT/python/.venv/bin/activate" ]; then
+    source "$LAB_ROOT/python/.venv/bin/activate"
+fi
+
+# 4. LAUNCH LAB (Zellij)
+# --------------------------------------------------------------------------
+# If no arguments are passed, launch the environment
 if [ -n "$ZELLIJ" ]; then
     echo "Already inside a Lab session."
 else

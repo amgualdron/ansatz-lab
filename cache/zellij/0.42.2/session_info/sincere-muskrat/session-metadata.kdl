@@ -1,4 +1,4 @@
-name "auspicious-rhinoceros"
+name "sincere-muskrat"
 tabs {
     tab {
         position 0
@@ -20,12 +20,11 @@ tabs {
     tab {
         position 1
         name "Dev"
-        active true
+        active false
         panes_to_hide 0
         is_fullscreen_active false
         is_sync_panes_active false
         are_floating_panes_visible false
-        other_focused_clients 1
         active_swap_layout_name "BASE"
         viewport_rows 28
         viewport_columns 118
@@ -71,6 +70,163 @@ tabs {
 }
 panes {
     pane {
+        id 3
+        is_plugin false
+        is_focused true
+        is_fullscreen false
+        is_floating false
+        is_suppressed false
+        title "nvim ."
+        exited false
+        is_held false
+        pane_x 0
+        pane_content_x 1
+        pane_y 1
+        pane_content_y 2
+        pane_rows 28
+        pane_content_rows 26
+        pane_columns 77
+        pane_content_columns 75
+        cursor_coordinates_in_pane 40 26
+        terminal_command "nvim ."
+        is_selectable true
+        tab_position 1
+    }
+    pane {
+        id 4
+        is_plugin false
+        is_focused false
+        is_fullscreen false
+        is_floating false
+        is_suppressed false
+        title "Build & Run"
+        exited false
+        is_held false
+        pane_x 77
+        pane_content_x 78
+        pane_y 1
+        pane_content_y 2
+        pane_rows 28
+        pane_content_rows 26
+        pane_columns 41
+        pane_content_columns 39
+        cursor_coordinates_in_pane 9 1
+        terminal_command "bash"
+        is_selectable true
+        tab_position 1
+    }
+    pane {
+        id 2
+        is_plugin true
+        is_focused false
+        is_fullscreen false
+        is_floating false
+        is_suppressed false
+        title "zellij:tab-bar"
+        exited false
+        is_held false
+        pane_x 0
+        pane_content_x 0
+        pane_y 0
+        pane_content_y 0
+        pane_rows 1
+        pane_content_rows 1
+        pane_columns 118
+        pane_content_columns 118
+        plugin_url "zellij:tab-bar"
+        is_selectable false
+        tab_position 1
+    }
+    pane {
+        id 3
+        is_plugin true
+        is_focused false
+        is_fullscreen false
+        is_floating false
+        is_suppressed false
+        title "zellij:status-bar"
+        exited false
+        is_held false
+        pane_x 0
+        pane_content_x 0
+        pane_y 29
+        pane_content_y 29
+        pane_rows 2
+        pane_content_rows 2
+        pane_columns 118
+        pane_content_columns 118
+        plugin_url "zellij:status-bar"
+        is_selectable false
+        tab_position 1
+    }
+    pane {
+        id 5
+        is_plugin false
+        is_focused true
+        is_fullscreen false
+        is_floating false
+        is_suppressed false
+        title "lazygit"
+        exited false
+        is_held false
+        pane_x 0
+        pane_content_x 1
+        pane_y 1
+        pane_content_y 2
+        pane_rows 28
+        pane_content_rows 26
+        pane_columns 118
+        pane_content_columns 116
+        cursor_coordinates_in_pane 62 1
+        terminal_command "lazygit"
+        is_selectable true
+        tab_position 2
+    }
+    pane {
+        id 4
+        is_plugin true
+        is_focused false
+        is_fullscreen false
+        is_floating false
+        is_suppressed false
+        title "zellij:tab-bar"
+        exited false
+        is_held false
+        pane_x 0
+        pane_content_x 0
+        pane_y 0
+        pane_content_y 0
+        pane_rows 1
+        pane_content_rows 1
+        pane_columns 118
+        pane_content_columns 118
+        plugin_url "zellij:tab-bar"
+        is_selectable false
+        tab_position 2
+    }
+    pane {
+        id 5
+        is_plugin true
+        is_focused false
+        is_fullscreen false
+        is_floating false
+        is_suppressed false
+        title "zellij:status-bar"
+        exited false
+        is_held false
+        pane_x 0
+        pane_content_x 0
+        pane_y 29
+        pane_content_y 29
+        pane_rows 2
+        pane_content_rows 2
+        pane_columns 118
+        pane_content_columns 118
+        plugin_url "zellij:status-bar"
+        is_selectable false
+        tab_position 2
+    }
+    pane {
         id 0
         is_plugin false
         is_focused true
@@ -88,7 +244,7 @@ panes {
         pane_content_rows 26
         pane_columns 71
         pane_content_columns 69
-        cursor_coordinates_in_pane 40 26
+        cursor_coordinates_in_pane 24 26
         terminal_command "nvim ."
         is_selectable true
         tab_position 0
@@ -183,72 +339,6 @@ panes {
         tab_position 0
     }
     pane {
-        id 5
-        is_plugin false
-        is_focused true
-        is_fullscreen false
-        is_floating false
-        is_suppressed false
-        title "lazygit"
-        exited false
-        is_held false
-        pane_x 0
-        pane_content_x 1
-        pane_y 1
-        pane_content_y 2
-        pane_rows 28
-        pane_content_rows 26
-        pane_columns 118
-        pane_content_columns 116
-        terminal_command "lazygit"
-        is_selectable true
-        tab_position 2
-    }
-    pane {
-        id 4
-        is_plugin true
-        is_focused false
-        is_fullscreen false
-        is_floating false
-        is_suppressed false
-        title "zellij:tab-bar"
-        exited false
-        is_held false
-        pane_x 0
-        pane_content_x 0
-        pane_y 0
-        pane_content_y 0
-        pane_rows 1
-        pane_content_rows 1
-        pane_columns 118
-        pane_content_columns 118
-        plugin_url "zellij:tab-bar"
-        is_selectable false
-        tab_position 2
-    }
-    pane {
-        id 5
-        is_plugin true
-        is_focused false
-        is_fullscreen false
-        is_floating false
-        is_suppressed false
-        title "zellij:status-bar"
-        exited false
-        is_held false
-        pane_x 0
-        pane_content_x 0
-        pane_y 29
-        pane_content_y 29
-        pane_rows 2
-        pane_content_rows 2
-        pane_columns 118
-        pane_content_columns 118
-        plugin_url "zellij:status-bar"
-        is_selectable false
-        tab_position 2
-    }
-    pane {
         id 6
         is_plugin false
         is_focused true
@@ -266,7 +356,7 @@ panes {
         pane_content_rows 26
         pane_columns 83
         pane_content_columns 81
-        cursor_coordinates_in_pane 40 26
+        cursor_coordinates_in_pane 3 8
         terminal_command "nvim ."
         is_selectable true
         tab_position 3
@@ -337,99 +427,8 @@ panes {
         is_selectable false
         tab_position 3
     }
-    pane {
-        id 3
-        is_plugin false
-        is_focused false
-        is_fullscreen false
-        is_floating false
-        is_suppressed false
-        title "nvim ."
-        exited true
-        exit_status 0
-        is_held true
-        pane_x 0
-        pane_content_x 1
-        pane_y 1
-        pane_content_y 2
-        pane_rows 28
-        pane_content_rows 26
-        pane_columns 77
-        pane_content_columns 75
-        cursor_coordinates_in_pane 1 1
-        terminal_command "nvim ."
-        is_selectable true
-        tab_position 1
-    }
-    pane {
-        id 4
-        is_plugin false
-        is_focused true
-        is_fullscreen false
-        is_floating false
-        is_suppressed false
-        title "Build & Run"
-        exited false
-        is_held false
-        pane_x 77
-        pane_content_x 78
-        pane_y 1
-        pane_content_y 2
-        pane_rows 28
-        pane_content_rows 26
-        pane_columns 41
-        pane_content_columns 39
-        cursor_coordinates_in_pane 9 1
-        terminal_command "bash"
-        is_selectable true
-        tab_position 1
-    }
-    pane {
-        id 2
-        is_plugin true
-        is_focused false
-        is_fullscreen false
-        is_floating false
-        is_suppressed false
-        title "zellij:tab-bar"
-        exited false
-        is_held false
-        pane_x 0
-        pane_content_x 0
-        pane_y 0
-        pane_content_y 0
-        pane_rows 1
-        pane_content_rows 1
-        pane_columns 118
-        pane_content_columns 118
-        plugin_url "zellij:tab-bar"
-        is_selectable false
-        tab_position 1
-    }
-    pane {
-        id 3
-        is_plugin true
-        is_focused false
-        is_fullscreen false
-        is_floating false
-        is_suppressed false
-        title "zellij:status-bar"
-        exited false
-        is_held false
-        pane_x 0
-        pane_content_x 0
-        pane_y 29
-        pane_content_y 29
-        pane_rows 2
-        pane_content_rows 2
-        pane_columns 118
-        pane_content_columns 118
-        plugin_url "zellij:status-bar"
-        is_selectable false
-        tab_position 1
-    }
 }
-connected_clients 1
+connected_clients 0
 available_layouts {
     default source="built-in"
     classic source="built-in"
@@ -439,8 +438,4 @@ available_layouts {
     strider source="built-in"
 }
 tab_history {
-    client {
-        id 1
-        history 3 0 2
-    }
 }

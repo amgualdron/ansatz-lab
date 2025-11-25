@@ -21,7 +21,7 @@ layout {
             plugin location="zellij:status-bar"
         }
     }
-    tab name="Dev" hide_floating_panes=true {
+    tab name="Dev" focus=true hide_floating_panes=true {
         pane size=1 borderless=true {
             plugin location="zellij:tab-bar"
         }
@@ -30,7 +30,8 @@ layout {
                 args "."
                 start_suspended true
             }
-            pane command="bash" name="Build & Run" size="35%" {
+            pane command="git" name="Build & Run" focus=true size="35%" {
+                args "push"
                 start_suspended true
             }
         }
@@ -38,11 +39,11 @@ layout {
             plugin location="zellij:status-bar"
         }
     }
-    tab name="Git" focus=true hide_floating_panes=true {
+    tab name="Git" hide_floating_panes=true {
         pane size=1 borderless=true {
             plugin location="zellij:tab-bar"
         }
-        pane command="lazygit" focus=true {
+        pane command="lazygit" {
             start_suspended true
         }
         pane size=2 borderless=true {

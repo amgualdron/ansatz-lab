@@ -1,5 +1,5 @@
 layout {
-    // ─── GLOBAL TEMPLATE (Status bar & Tab bar) ──────────────────────
+    // ─── GLOBAL UI TEMPLATE ──────────────────────────────────────────
     default_tab_template {
         pane size=1 borderless=true {
             plugin location="zellij:tab-bar"
@@ -10,53 +10,40 @@ layout {
         }
     }
 
-    // ─── TAB 1: ANALYSIS (Python + IPython + Shell) ─────────────────
+    // ─── TAB 1: ANALYSIS (Simplified: Nvim | IPython) ───────────────
     tab name="Analysis" focus=true {
         pane split_direction="vertical" {
-            // Main Editor (60% width)
+            // Main Editor (Left, 60%)
             pane size="60%" command="nvim" {
                 args "."
                 focus true
             }
             
-            // Right Side Stack
-            pane split_direction="horizontal" {
-                // Top Right: IPython REPL
-                pane name="IPython" command="ipython" {
-                    args "--no-autoindent"
-                }
-                // Bottom Right: System Shell
-                pane name="System"
+            // Scientific REPL (Right, 40%)
+            pane name="IPython" command="ipython" {
+                args "--no-autoindent"
             }
         }
     }
 
-    // ─── TAB 2: DEV (C++ / Fortran Build Env) ───────────────────────
+    // ─── TAB 2: DEV (Simulation Build & Run) ────────────────────────
     tab name="Dev" {
         pane split_direction="vertical" {
-            pane size="65%" command="nvim" {
-                args "."
-            }
-            pane name="Build & Run" command="bash" {
-                // Optional: Pre-type 'make' command history
-            }
+            pane size="65%" command="nvim" { args "."; }
+            pane name="Build" command="bash"
         }
     }
 
-    // ─── TAB 3: VERSION CONTROL (Lazygit) ───────────────────────────
+    // ─── TAB 3: GIT (Version Control) ───────────────────────────────
     tab name="Git" {
-        // Requires 'lazygit' installed on system. 
-        // If not, change command to "bash"
-        pane command="lazygit" 
+        pane command="lazygit" // Falls back to shell if not installed
     }
 
-    // ─── TAB 4: WRITING (Paper / LaTeX) ─────────────────────────────
+    // ─── TAB 4: PAPER (Writing) ─────────────────────────────────────
     tab name="Paper" {
         pane split_direction="vertical" {
-            pane size="70%" command="nvim" {
-                args "."
-            }
-            pane name="Files/Reference"
+            pane size="70%" command="nvim" { args "."; }
+            pane name="Files"
         }
     }
 }

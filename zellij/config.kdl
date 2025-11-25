@@ -1,3 +1,43 @@
+// ANZATZ LAB - ZELLIJ CONFIGURATION
+
+// 1. BEHAVIOR
+// ---------------------------------------------------------
+mouse_mode true
+copy_command "xclip -selection clipboard" // Linux clipboard support
+copy_on_select false
+default_layout "compact"
+pane_frames false  // "False" removes thick borders for a seamless look
+
+// 2. THEME (Everforest Dark Hard match)
+// ---------------------------------------------------------
+theme "everforest-dark"
+
+themes {
+    everforest-dark {
+        fg "#D3C6AA"
+        bg "#2D353B"
+        black "#4B565C"
+        red "#E67E80"
+        green "#A7C080"
+        yellow "#DBBC79"
+        blue "#7FBBB3"
+        magenta "#D699B6"
+        cyan "#83C092"
+        white "#D3C6AA"
+        orange "#E69875"
+    }
+}
+
+// 3. UI
+// ---------------------------------------------------------
+ui {
+    pane_frames {
+        hide_session_name true
+    }
+}
+// KEYMAPS
+// --------------------------------------------------------
+
 keybinds clear-defaults=true {
     locked {
         bind "Ctrl g" { SwitchToMode "normal"; }
